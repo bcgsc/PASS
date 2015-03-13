@@ -18,7 +18,7 @@ TRY IT OUT BY SIMPLY RUNNING:
 Implementation and requirements
 -------------------------------
 
-SSAKE is implemented in PERL and runs on any OS where PERL is installed.
+PASS is implemented in PERL and runs on any OS where PERL is installed.
 
 
 Install
@@ -28,7 +28,7 @@ Download the tar ball, gunzip and extract the files on your system using:
 
 gunzip pass_v0-1.tar.gz
 
-Change the shebang line of SSAKE to point to the version of perl installed on your system and you're good to go.
+Change the shebang line of PASS to point to the version of perl installed on your system and you're good to go.
 
 
 Documentation
