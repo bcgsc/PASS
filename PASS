@@ -4,7 +4,7 @@
 #AUTHOR
 #   Rene Warren (c) 2006-2015
 #   Proteome Assembler with Short Sequence (PASS) peptide 
-#   rwarren at bcgsc.ca
+#   warrenlr at gmail.com
 
 #NAME
 #   PASS Rene Warren, March 2015
@@ -17,7 +17,7 @@
 #   The PASS algorithm is nearly identical to that of SSAKE, the genome assembler for short DNA sequences
 #   If you use PASS for your research, please cite: 
 #   Warren RL, Sutton GG, Jones SJM, Holt RA.  2007.  Assembling millions of short DNA sequences using SSAKE.  Bioinformatics. 23(4):500-501
-#   We hope this code is useful to you -- Please send comments & suggestions to rwarren * bcgsc.ca
+#   We hope this code is useful to you -- Please send comments & suggestions to warrenlr * gmail.com
 #   If you use PASS, TASR, SSAKE, its code or ideas, please cite our work
 
 #LICENSE
@@ -45,7 +45,7 @@ getopts('f:m:o:v:r:p:d:k:a:z:e:g:s:t:b:c:x:n:h:i:w:j:q:y:');
 my ($targetwordlen,$base_overlap,$min_overlap,$verbose,$MIN_READ_LENGTH,$SEQ_SLIDE,$min_base_ratio,$paired,$min_links,$max_link_ratio,$contig_size_cutoff,$insert_stdev,$unpaired_file,$seed_file,$max_trim,$base_name,$tracked,$forcetrack,$max_count_trim,$min_tig_overlap,$npad_gaps,$ignorehead,$space_restriction,$min_depth_of_coverage,$tie_breaker,$ignore_read)=(5,2,10,0,6,1,0.7,0,4,0.50,20,0.75,"no-g","no-targetSeed",0,"",0,0,5,10,0,0,0,0,0,0);
 
 my $version = "[v0.1 peptide assembly]";
-my $dev = "rwarren\@bcgsc.ca";
+my $dev = "warrenlr\@gmail.com";
 my $per;
 my $MAX = 0;
 my $MAX_TOP = 1500; # this is the very maximum anchoring edge sequence that will be searched (designed for use with -s to prevent long searches)
@@ -1814,4 +1814,4 @@ sub forcefillGaps{
    close OUT;
 }
 
-## We hope this code is useful to you -- Please send comments & suggestions to rwarren at bcgsc.ca
+## We hope this code is useful to you -- Please send comments & suggestions to warrenlr at gmail.com
