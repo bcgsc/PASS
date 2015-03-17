@@ -1,4 +1,4 @@
-Protein Assembler with Short Sequence peptide (PASS)
+Proteome Assembler with Short Sequence peptide (PASS)
 
 PASS v0.1 Rene L. Warren, 2015
 email: rwarren at bcgsc.ca
@@ -217,7 +217,7 @@ PASS does not
 License
 -------
 
-PASS Copyright (c) 2015 Canada's Michael Smith Genome Science Centre.  All rights reserved.
+PASS Copyright (c) 2015 Rene Warren.  All rights reserved.
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License

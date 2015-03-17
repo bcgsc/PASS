@@ -3,14 +3,14 @@
 
 #AUTHOR
 #   Rene Warren (c) 2006-2015
-#   Protein Assembler with Short Sequence (PASS) peptide 
+#   Proteome Assembler with Short Sequence (PASS) peptide 
 #   rwarren at bcgsc.ca
 
 #NAME
 #   PASS Rene Warren, March 2015
 
 #SYNOPSIS
-#   Protein Assembler with Short Sequence (PASS) peptide 
+#   Proteome Assembler with Short Sequence (PASS) peptide 
 
 #DOCUMENTATION
 #   PASS.readme distributed with this software @ www.bcgsc.ca
@@ -21,7 +21,7 @@
 #   If you use PASS, TASR, SSAKE, its code or ideas, please cite our work
 
 #LICENSE
-#   Copyright (c) 2006-2015 Canada's Michael Smith Genome Science Centre.  All rights reserved.
+#   Copyright (c) 2015 Rene Warren.  All rights reserved.
 
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License
