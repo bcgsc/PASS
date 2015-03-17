@@ -1,2 +1,2 @@
 # PASS
-Protein Assembler with Short Sequence peptide
+Proteome Assembler with Short Sequence peptide
