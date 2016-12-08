@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #PASS
 ##Proteome Assembler with Short Sequence peptide (PASS)
 ##PASS v0.1 Rene L. Warren, 2015
@@ -230,7 +229,3 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
-=======
-# PASS
-Proteome Assembler with Short Sequence peptide
->>>>>>> origin/master
