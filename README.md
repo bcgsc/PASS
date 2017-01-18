@@ -15,6 +15,7 @@ TRY IT OUT BY SIMPLY RUNNING:
 ./test/runme.sh
 </pre>
 
+
 ###Implementation and requirements
 -------------------------------
 
@@ -27,6 +28,7 @@ PASS is implemented in PERL and runs on any OS where PERL is installed.
 Download the tar ball, gunzip and extract the files on your system using:
 
 gunzip pass_v0-1.tar.gz
+tar -xvf pass_v0-1.tar
 
 Change the shebang line of PASS to point to the version of perl installed on your system and you're good to go.
 
@@ -45,7 +47,9 @@ Questions or comments?  We would love to hear from you!
 Thank you for using, developing and promoting this free software.
 If you use PASS for you research, please cite*:
 
+<pre>
 Warren RL, Sutton GG, Jones SJM, Holt RA.  2007.  Assembling millions of short DNA sequences using SSAKE.  Bioinformatics. 23(4):500-501
+</pre>
 *A manuscript is currently in the works
 
 
@@ -85,7 +89,7 @@ Run: ./runme.sh
 ###How it works
 ------------
 
-1. Sequence Overlap
+A. Sequence Overlap
 
 Short petide sequences of length l in a single multi fasta file -f are read in memory, populating a hash table keyed by unique sequence reads with pairing values representing the number of sequence occurrence in the input read set.  The normalized sequence reads are sorted by decreasing abundance (number of times the sequence is repeated) to reflect coverage and minimize extension of reads containing sequencing errors.  Reads having sequencing errors are more likely to be unique in the entire read set when compared to their error-free counterparts.  Sequence assembly is initiated by generating the longest COOH-most word (k-mer) from the unassembled read u that is shorter than the sequence read length l.  Every possible COOH-terminal most k-mers will be generated from u and used in turn for the search until the word length is smaller than a user-defined minimum, m.  Meanwhile, all perfectly overlapping reads will be collected in an array and further considered for COOH-termini extension once the k-mer search is done.  At the same time, a hash table c will store every amino acid along with a coverage count for every position of the overhang (or stretches of amino acids hanging off the seed sequence u).   
 
@@ -94,12 +98,12 @@ Once the search complete, a consensus sequence is derived from the hash table c,
 The process of progressively cycling through longer to shorter COOH-most k-mer is repeated after every sequence extension until nothing else can be done on that side.  Since only left-most searches are possible with a prefix tree, when all possibilities have been exhausted for the COOH-terminal extension, the complementary strand of the contiguous sequence generated is used to extend the contig on the NH2-end.  The prefix tree is used to limit the search space by segregating sequence reads and their reverse counterparts (if applicable) by their first 5 amino acid at the NH2-termini.  
 
 There are three ways to control the stringency in PASS:
-1) Disallow read/contig extension if the coverage is too low (-o).  Higher -o values lead to shorter contigs, but minimizes sequence misassemblies.
-2) Adjust the minimum overlap -m allowed between the seed/contig and short sequence reads.  Higher m values lead to more accurate contigs at the cost of decreased contiguity.  
-3) Set the minimum amino acid ratio -r to higher values
+1. Disallow read/contig extension if the coverage is too low (-o).  Higher -o values lead to shorter contigs, but minimizes sequence misassemblies.
+2. Adjust the minimum overlap -m allowed between the seed/contig and short sequence reads.  Higher m values lead to more accurate contigs at the cost of decreased contiguity.  
+3. Set the minimum amino acid ratio -r to higher values
 
 
-2. Using a seed sequence file
+B. Using a seed sequence file
 
 If the -s option is set and points to a valid fasta file, the protein sequences comprised in that file will populate the hash table and be used exclusively as seeds to nucleate contig extensions (they will not be utilized to build the prefix tree).  In that scheme, every unique seed will be used in turn to nucleate an extension, using short reads found in the tree (specified in -f).  This feature might be useful if you already have characterized sequences & want to increase their length using short reads.  That said, since the short reads are not used as seeds when -s is set, they will not cluster to one another WITHOUT a seed sequence file.  Also, to speed up the assembly, no imbedded reads (i.e. those aligning to the seed in their entirety) are considered.  Only reads that contribute to extending a seed sequence are noted.
 
@@ -141,24 +145,29 @@ LTIQLI
 </pre>
 
 General points:
--To be considered, sequences have to be longer than 6 amino acids or -m (but can be of different lengths).  If they are shorter, the program will simply omit them from the assembly and will be placed in the .shorts file 
--Short sequences that have not been extended are placed in the .singlets file
--As before, the length of individual sequence is used to determine the size of the right-most subsequence to look for initially
--Reads containing ambiguous amino acids "X" and characters other than ARNDCQEGHILKMFPSTWYV will be ignored entirely
--Spaces in fasta file are NOT permitted and will either not be considered or result in execution failure
+1. To be considered, sequences have to be longer than 6 amino acids or -m (but can be of different lengths).  If they are shorter, the program will simply omit them from the assembly and will be placed in the .shorts file 
+2. Short sequences that have not been extended are placed in the .singlets file
+3. As before, the length of individual sequence is used to determine the size of the right-most subsequence to look for initially
+4. Reads containing ambiguous amino acids "X" and characters other than ARNDCQEGHILKMFPSTWYV will be ignored entirely
+5. Spaces in fasta file are NOT permitted and will either not be considered or result in execution failure
 
 
 ###Output files
 ------------
 
-.contigs   :: fasta file; All sequence contigs
-.log       :: text file; Logs execution time / errors 
-.short     :: text file; Lists sequence reads shorter than a set, acceptable, minimum
-.singlets  :: fasta file; All unassembled sequence reads
+Output file | Description
+---|---
+.contigs   | fasta file; All sequence contigs
+.log       | text file; Logs execution time / errors 
+.short     | text file; Lists sequence reads shorter than a set, acceptable, minimum
+.singlets  | fasta file; All unassembled sequence reads
 
--c 1  (WARNING: ASSOCIATED FILES CAN BECOME VERY LARGE!)
-.readposition             :: this is a text file listing all whole (fully embedded) reads, start and end coordinate onto the contig (in this order).  For reads aligning on the minus strand, end coordinate is < start coordinate
-.coverage.csv             :: this is a comma-separated values file showing the amino acid coverage at every position for any given contig   >  -z
+Output file (-c 1*) | Description
+---|---
+.readposition             | this is a text file listing all whole (fully embedded) reads, start and end coordinate onto the contig (in this order).  For reads aligning on the minus strand, end coordinate is < start coordinate
+.coverage.csv             | this is a comma-separated values file showing the amino acid coverage at every position for any given contig   >  -z
+
+*WARNING: ASSOCIATED FILES CAN BECOME VERY LARGE!
 
 
 ###Understanding the .contigs fasta header
@@ -215,8 +224,8 @@ In this order: read name [template th -p 1 :: name followed with 1 or 2, corresp
 ###PASS does not
 --------------
 
--Take into consideration quality scores.  It is up to the user to process the sequence data before assembly.
--Consider sequence read having any character other than A,R,N,D,C,Q,E,G,H,I,L,K,M,F,P,S,T,W,Y,V and will skip these reads entirely while reading the fasta file. 
+1. Take into consideration quality scores.  It is up to the user to process the sequence data before assembly.
+2. Consider sequence read having any character other than A,R,N,D,C,Q,E,G,H,I,L,K,M,F,P,S,T,W,Y,V and will skip these reads entirely while reading the fasta file. 
 
 
 ###License
