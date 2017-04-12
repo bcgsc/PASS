@@ -1,10 +1,10 @@
-#PASS
-##Proteome Assembler with Short Sequence peptide (PASS)
-##PASS v0.1 Rene L. Warren, 2015
-##email: warrenlr at gmail.com
+# PASS
+## Proteome Assembler with Short Sequence peptide (PASS)
+## PASS v0.1 Rene L. Warren, 2015
+## email: warrenlr at gmail.com
 
 
-###Description
+### Description
 -----------
 
 PASS is a proteomics application for de novo assembly of millions of very short (6 aa) to longer (100 aa) peptide sequences and beyond.
@@ -16,13 +16,13 @@ TRY IT OUT BY SIMPLY RUNNING:
 </pre>
 
 
-###Implementation and requirements
+### Implementation and requirements
 -------------------------------
 
 PASS is implemented in PERL and runs on any OS where PERL is installed.
 
 
-###Install
+### Install
 -------
 
 Download the tar ball, gunzip and extract the files on your system using:
@@ -33,7 +33,7 @@ tar -xvf pass_v0-1.tar
 Change the shebang line of PASS to point to the version of perl installed on your system and you're good to go.
 
 
-###Documentation
+### Documentation
 -------------
 
 Refer to the PASS.readme file on how to run PASS
@@ -41,7 +41,7 @@ Refer to the PASS.readme file on how to run PASS
 Questions or comments?  We would love to hear from you!
 
 
-###Citing PASS 
+### Citing PASS 
 -----------
 
 Thank you for using, developing and promoting this free software.
@@ -53,7 +53,7 @@ Warren RL, Sutton GG, Jones SJM, Holt RA.  2007.  Assembling millions of short D
 *A manuscript is currently in the works
 
 
-###Running PASS
+### Running PASS
 ------------
 <pre>
 e.g. ../PASS -f AAreadsLEN6-COV30.fa -m 4 -w 1 -o 1 -r 0.51 
@@ -78,7 +78,7 @@ Usage: ./PASS [v0.1 peptide assembly]
 -v  Runs in verbose mode (-v 1 = yes, default = no, optional)
 </pre>
 
-###Test data
+### Test data
 ---------
 
 Go to ./test
@@ -86,7 +86,7 @@ Go to ./test
 Run: ./runme.sh
 
 
-###How it works
+### How it works
 ------------
 
 A. Sequence Overlap
@@ -118,7 +118,7 @@ PASS doesn't not constrain the k-mer length derived from a target sequence for i
 *Refer to the "Test data" section below for a concrete example
 
 
-###Input sequences
+### Input sequences
 ---------------
 
 amino acid sequences can be in lower caps as well
@@ -152,7 +152,7 @@ General points:
 5. Spaces in fasta file are NOT permitted and will either not be considered or result in execution failure
 
 
-###Output files
+### Output files
 ------------
 
 Output file | Description
@@ -170,7 +170,7 @@ Output file (-c 1*) | Description
 *WARNING: ASSOCIATED FILES CAN BECOME VERY LARGE!
 
 
-###Understanding the .contigs fasta header
+#### Understanding the .contigs fasta header
 ---------------------------------------
 
 e.g.
@@ -188,7 +188,7 @@ the coverage (C) is calculated using the total number (T) of consensus amino aci
 C = T / G
 
 
-###Understanding the .coverage.csv file
+#### Understanding the .coverage.csv file
 ------------------------------------
 
 e.g.
@@ -199,7 +199,7 @@ e.g.
 Each number represents the number of reads covering that amino acid at that position.
 
 
-###Understanding the .readposition file
+#### Understanding the .readposition file
 ------------------------------------
 
 e.g.
@@ -221,14 +221,14 @@ READ_94449,18,1
 In this order: read name [template th -p 1 :: name followed with 1 or 2, corresponds to the order in the sequence input (1:2)], start coordinate, end coordinate.  end < start indicates read is on minus strand
 
 
-###PASS does not
+#### PASS does not
 --------------
 
 1. Take into consideration quality scores.  It is up to the user to process the sequence data before assembly.
 2. Consider sequence read having any character other than A,R,N,D,C,Q,E,G,H,I,L,K,M,F,P,S,T,W,Y,V and will skip these reads entirely while reading the fasta file. 
 
 
-###License
+### License
 -------
 
 PASS Copyright (c) 2015 Rene Warren.  All rights reserved.
