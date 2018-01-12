@@ -1,3 +1,5 @@
+![Logo](https://github.com/warrenlr/pass/blob/master/pass-logo.png)
+
 # PASS
 ## Proteome Assembler with Short Sequence peptide (PASS)
 ## PASS v0.1 Rene L. Warren, 2015
