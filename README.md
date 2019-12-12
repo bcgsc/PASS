@@ -6,7 +6,7 @@
 
 # PASS
 ## Proteome Assembler with Short Sequence peptide (PASS)
-## PASS v0.3 Rene L. Warren, 2015-2018
+## PASS v0.3 Rene L. Warren, 2015-2020
 ## email: warrenlr at gmail.com
 
 
@@ -62,7 +62,7 @@ Questions or comments?  We would love to hear from you!
 ### Citing PASS 
 -----------
 
-Thank you for your [![Stars](https://img.shields.io/github/stars/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/stargazers) and for using, developing and promoting this free software.
+Thank you for your [![Stars](https://img.shields.io/github/stars/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/stargazers) and for using, developing and promoting this free software!
 
 If you use PASS for you research, please cite*:
 
@@ -259,7 +259,7 @@ In this order: read name [template th -p 1 :: name followed with 1 or 2, corresp
 ### License
 -----------
 
-PASS Copyright (c) 2015-2018 Rene Warren.  All rights reserved.
+PASS Copyright (c) 2015-2020 Rene Warren.  All rights reserved.
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
