@@ -7,7 +7,7 @@
 # PASS
 ## Proteome Assembler with Short Sequence peptide (PASS)
 ## PASS v0.3 Rene L. Warren, 2015-2020
-## email: warrenlr at gmail.com
+## email: rwarren [at] b c g s c [dot] ca
 
 
 ### Description
