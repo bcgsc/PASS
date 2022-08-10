@@ -22,10 +22,10 @@ TRY IT OUT BY SIMPLY RUNNING:
 </pre>
 
 
-### What's new in v0.3 ?
+### What's new in v0.3.1 ?
 -----------
 
-Support MS DOS/Windows FASTA-formatted files
+Support MS DOS/Windows FASTA-formatted files (see general points under Input Sequences below)
 
 
 ### What's new in v0.3 ?
@@ -128,9 +128,9 @@ A. Sequence Overlap
 
 Short petide sequences of length l in a single multi fasta file -f are read in memory, populating a hash table keyed by unique sequence reads with pairing values representing the number of sequence occurrence in the input read set.  The normalized sequence reads are sorted by decreasing abundance (number of times the sequence is repeated) to reflect coverage and minimize extension of reads containing sequencing errors.  Reads having sequencing errors are more likely to be unique in the entire read set when compared to their error-free counterparts.  Sequence assembly is initiated by generating the longest COOH-most word (k-mer) from the unassembled read u that is shorter than the sequence read length l.  Every possible COOH-terminal most k-mers will be generated from u and used in turn for the search until the word length is smaller than a user-defined minimum, m.  Meanwhile, all perfectly overlapping reads will be collected in an array and further considered for COOH-termini extension once the k-mer search is done.  At the same time, a hash table c will store every amino acid along with a coverage count for every position of the overhang (or stretches of amino acids hanging off the seed sequence u).   
 
-Once the search complete, a consensus sequence is derived from the hash table c, taking the most represented amino acid at each position of the overhang.  To be considered for the consensus, each amino acid has to be covered by user-defined -o (set to 2 by default).  If there's a tie (two amino acids at a specific position have the same coverage count), the prominent amino acid is below a user-defined ratio r, the coverage -o is to low or the end of the overhang is reached, the consensus extension terminates and the consensus overhang joined to the seed sequence/contig.  All reads overlapping are searched against the newly formed sequence and, if found, are removed from the hash table and prefix tree.  If they are not part of the consensus, they will be used to seed/extend other contigs, if applicable.  If no overlapping reads match the newly formed contig, the extension is terminated from that end and PASS resumes with a new seed.  That prevents infinite looping through low-complexity amino acid sequences.  In the former case, the extension resumes using the new [l-m] space to search for joining k-mers. 
+Once the search complete, a consensus sequence is derived from the hash table c, taking the most represented amino acid at each position of the overhang.  To be considered for the consensus, each amino acid has to be covered by user-defined -o (set to 2 by default).  If there's a tie (two amino acids at a specific position have the same coverage count), the prominent amino acid is below a user-defined ratio r, the coverage -o is too low or the end of the overhang is reached, the consensus extension terminates and the consensus overhang joined to the seed sequence/contig.  All reads overlapping are searched against the newly formed sequence and, if found, are removed from the hash table and prefix tree.  If they are not part of the consensus, they will be used to seed/extend other contigs, if applicable.  If no overlapping reads match the newly formed contig, the extension is terminated from that end and PASS resumes with a new seed.  That prevents infinite looping through low-complexity amino acid sequences.  In the former case, the extension resumes using the new [l-m] space to search for joining k-mers. 
 
-The process of progressively cycling through longer to shorter COOH-most k-mer is repeated after every sequence extension until nothing else can be done on that side.  Since only left-most searches are possible with a prefix tree, when all possibilities have been exhausted for the COOH-terminal extension, the complementary strand of the contiguous sequence generated is used to extend the contig on the NH2-end.  The prefix tree is used to limit the search space by segregating sequence reads and their reverse counterparts (if applicable) by their first 5 amino acid at the NH2-termini.  
+The process of progressively cycling through longer to shorter COOH-most k-mer is repeated after every sequence extension until nothing else can be done on that end.  Since only left-most searches are possible with a prefix tree, when all possibilities have been exhausted for the COOH-terminal extension, the complementary strand of the contiguous sequence generated is used to extend the contig on the NH2-end.  The prefix tree is used to limit the search space by segregating sequence reads and their reverse counterparts (if applicable) by their first 5 amino acid at the NH2-termini.  
 
 There are three ways to control the stringency in PASS:
 1. Disallow read/contig extension if the coverage is too low (-o).  Higher -o values lead to shorter contigs, but minimizes sequence misassemblies.
@@ -140,7 +140,7 @@ There are three ways to control the stringency in PASS:
 
 B. Using a seed sequence file
 
-If the -s option is set and points to a valid fasta file, the protein sequences comprised in that file will populate the hash table and be used exclusively as seeds to nucleate contig extensions (they will not be utilized to build the prefix tree).  In that scheme, every unique seed will be used in turn to nucleate an extension, using short reads found in the tree (specified in -f).  This feature might be useful if you already have characterized sequences & want to increase their length using short reads.  That said, since the short reads are not used as seeds when -s is set, they will not cluster to one another WITHOUT a seed sequence file.  Also, to speed up the assembly, no imbedded reads (i.e. those aligning to the seed in their entirety) are considered.  Only reads that contribute to extending a seed sequence are noted.
+If the -s option is set and points to a valid fasta file, the protein sequences comprised in that file will populate the hash table and be used exclusively as seeds to nucleate contig extensions (they will not be utilized to build the prefix tree).  In that scheme, every unique seed will be used in turn to nucleate an extension, using short reads found in the tree (specified in -f).  This feature might be useful if you already have characterized sequences & want to increase their length using short reads.  That said, since the short reads are not used as seeds when -s is set, they will not cluster to one another WITHOUT a seed sequence file.  Also, to speed up the assembly, no embedded reads (i.e. those aligning to the seed in their entirety) are considered.  Only reads that contribute to extending a seed sequence are noted.
 
 When -s is set, the .contigs file lists all extended seeds, even if it's by a single amino acid.  The .singlets will ONLY list seeds that could not be extended.  Unassembled microreads will NOT be outputted. 
 
@@ -185,6 +185,7 @@ General points:
 3. As before, the length of individual sequence is used to determine the size of the right-most subsequence to look for initially
 4. Reads containing ambiguous amino acids "X" and characters other than ARNDCQEGHILKMFPSTWYV will be ignored entirely
 5. Spaces in fasta file are NOT permitted and will either not be considered or result in execution failure
+6. Ensure that your input FASTA is devoid of MS DOS/Windows new line characters (only unix newline characters are accepted). PASS will ignore peptide sequences that are not formatted properly. This unix command may be used for the conversion: tr -d '\r' < test.fasta > testconverted.fasta
 
 
 ### Output files
