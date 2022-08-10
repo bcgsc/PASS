@@ -5,7 +5,7 @@ use Data::Dumper;
 
 
 if($#ARGV<2){
-   die "Usage $0 <genome sequence> <fold sequence coverage> <read length>\n";
+   die "Usage $0 <sequence FASTA file> <fold sequence coverage> <read length>\n";
 }
 
 my $fasta=$ARGV[0];

@@ -6,7 +6,7 @@
 
 # PASS
 ## Proteome Assembler with Short Sequence peptide (PASS)
-## PASS v0.3 Rene L. Warren, 2015-2021
+## PASS v0.3.1 Rene L. Warren, 2015-2022
 ## email: rwarren [at] b c g s c [dot] ca
 
 
@@ -23,6 +23,12 @@ TRY IT OUT BY SIMPLY RUNNING:
 
 
 Note: Please ensure that your input FASTA is devoid of MS DOS/Windows new line characters (only unix newline characters are accepted). PASS will ignore peptide sequences that are not formatted properly. 
+
+### What's new in v0.3 ?
+-----------
+
+Support MS DOS/Windows FASTA-formatted files
+
 
 ### What's new in v0.3 ?
 -----------
@@ -47,8 +53,8 @@ PASS is implemented in PERL and runs on any OS where PERL is installed.
 
 Download the tar ball, gunzip and extract the files on your system using:
 
-gunzip pass_v0-3.tar.gz
-tar -xvf pass_v0-3.tar
+gunzip pass_v0-3-1.tar.gz
+tar -xvf pass_v0-3-1.tar
 
 Change the shebang line of PASS to point to the version of perl installed on your system and you're good to go.
 
@@ -80,7 +86,7 @@ Warren RL, Sutton GG, Jones SJM, Holt RA.  2007.  Assembling millions of short D
 <pre>
 e.g. ../PASS -f AAreadsLEN6-COV30.fa -m 4 -w 1 -o 1 -r 0.51 
 
-Usage: ./PASS [v0.3 peptide assembly]
+Usage: ./PASS [v0.3.1 peptide assembly]
 -f  File containing all the peptide reads (required)
 -w  Minimum depth of coverage allowed for contigs (e.g. -w 1 = process all reads, required)
     *The assembly will stop when 50+ contigs with coverage < -w have been seen.*
@@ -100,6 +106,7 @@ Usage: ./PASS [v0.3 peptide assembly]
 -q  Break tie when no consensus amino acid at position, pick random amino acid (-q 1 = yes, default = no, optional)
 -v  Runs in verbose mode (-v 1 = yes, default = no, optional)
 </pre>
+
 
 ### Test data
 -----------
