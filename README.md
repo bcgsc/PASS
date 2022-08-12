@@ -1,6 +1,7 @@
 [![Release](https://img.shields.io/github/release/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/releases)
 [![Downloads](https://img.shields.io/github/downloads/warrenlr/PASS/total?logo=github)](https://github.com/warrenlr/PASS/releases/download/untagged-637f9b09d287997b1fe6/pass_v0-3.tar.gz)
 [![Issues](https://img.shields.io/github/issues/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/issues)
+[![link](https://img.shields.io/badge/PASS-manuscript-brightgreen)](https://doi.org/10.48550/arXiv.2208.05598)
 
 ![Logo](https://github.com/warrenlr/pass/blob/master/pass-logo.png)
 
@@ -70,12 +71,13 @@ Questions or comments?  We would love to hear from you!
 
 Thank you for your [![Stars](https://img.shields.io/github/stars/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/stargazers) and for using, developing and promoting this free software!
 
-If you use PASS for you research, please cite*:
+If you use PASS for you research, please cite:
 
 <pre>
 Warren RL, Sutton GG, Jones SJM, Holt RA.  2007.  Assembling millions of short DNA sequences using SSAKE.  Bioinformatics. 23(4):500-501
+
+Warren RL. 2022. PASS: De novo assembler for short peptide sequences. arXiv. https://doi.org/10.48550/arXiv.2208.05598
 </pre>
-*A manuscript is currently in the works
 
 
 ### Running PASS
