@@ -9,8 +9,24 @@
 ## Protein Assembler with Short Sequences (PASS)
 ## PASS v0.3.1 Rene L. Warren, 2015-2023
 
+### Contents
+--------
+1. [Description](#des)
+2. [What's new](#new)
+3. [Implementation and requirements](#imp)
+4. [Installation](#install)
+5. [Documentation](#doc)
+6. [Citing PASS](#citing)
+7. [Running PASS](#run)
+8. [Test data](#test)
+9. [Algorithm](#algo)
+10. [Input](#input)
+11. [Output](#output)
+12. [License](#license)
+--------
 
-### Description
+
+### Description <a name=des></a>
 -----------
 
 PASS is a proteomics application for de novo assembly of millions of very short (6 aa) to longer (100 aa) peptide sequences and beyond.
@@ -22,7 +38,7 @@ TRY IT OUT BY SIMPLY RUNNING:
 </pre>
 
 
-### What's new in v0.3.1 ?
+### What's new in v0.3.1 ? <a name=new></a>
 -----------
 
 Support MS DOS/Windows FASTA-formatted files (see general points under Input Sequences below)
@@ -40,13 +56,13 @@ Implements targeted de novo assembly. Sequence targets supplied with (-s) are us
 Bug fix (peptide sequences were not input in the reverse order, which resulted in short contigs)
 
 
-### Implementation and requirements
+### Implementation and requirements <a name=imp></a>
 -----------
 
 PASS is implemented in PERL and runs on any OS where PERL is installed.
 
 
-### Install
+### Installation <a name=install></a>
 -----------
 
 Download the tar ball, gunzip and extract the files on your system using:
@@ -57,7 +73,7 @@ tar -xvf pass_v0-3-1.tar
 Change the shebang line of PASS to point to the version of perl installed on your system and you're good to go.
 
 
-### Documentation
+### Documentation <a name=doc></a>
 -----------
 
 Refer to the PASS.readme file on how to run PASS
@@ -65,7 +81,7 @@ Refer to the PASS.readme file on how to run PASS
 Questions or comments?  We would love to hear from you!
 
 
-### Citing PASS 
+### Citing PASS <a name=citing></a>
 -----------
 
 Thank you for your [![Stars](https://img.shields.io/github/stars/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/stargazers) and for using, developing and promoting this free software!
@@ -79,7 +95,7 @@ Warren RL. 2022. PASS: De novo assembler for short peptide sequences. arXiv. htt
 </pre>
 
 
-### Running PASS
+### Running PASS <a name=run></a>
 -----------
 
 <pre>
@@ -107,7 +123,7 @@ Usage: ./PASS [v0.3.1 peptide assembly]
 </pre>
 
 
-### Test data
+### Test data <a name=test></a>
 -----------
 
 Go to the test directory and execute the runme.sh bash script
@@ -122,7 +138,7 @@ Data : https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4999880/bin/srep31730-s2.zip
 A fair comparison of PASS to the ALPS system requires an additional MSA step (eg. T-Coffee, clustal, MUSCLE) to merge resulting contigs 
 
 
-### How it works
+### Algorithm <a name=algo></a>
 -----------
 
 A. Sequence Overlap
@@ -154,7 +170,7 @@ PASS doesn't not constrain the k-mer length derived from a target sequence for i
 *Refer to the "Test data" section below for a concrete example
 
 
-### Input sequences
+### Input <a name=input></a>
 -----------
 
 amino acid sequences can be in lower caps as well
@@ -189,7 +205,7 @@ General points:
 6. Ensure that your input FASTA is devoid of MS DOS/Windows new line characters (only unix newline characters are accepted). PASS will ignore peptide sequences that are not formatted properly. This unix command may be used for the conversion: tr -d '\r' < test.fasta > testconverted.fasta
 
 
-### Output files
+### Output <a name=output></a>
 -----------
 
 Output file | Description
@@ -265,7 +281,7 @@ In this order: read name [template th -p 1 :: name followed with 1 or 2, corresp
 2. Consider sequence read having any character other than A,R,N,D,C,Q,E,G,H,I,L,K,M,F,P,S,T,W,Y,V and will skip these reads entirely while reading the fasta file. 
 
 
-### License
+### License <a name=license></a>
 -----------
 
 PASS Copyright (c) 2015-2023 Rene Warren.  All rights reserved.
