@@ -8,7 +8,6 @@
 # PASS
 ## Protein Assembler with Short Sequences (PASS)
 ## PASS v0.3.1 Rene L. Warren, 2015-2023
-## email: rwarren [at] b c g s c [dot] ca
 
 
 ### Description
