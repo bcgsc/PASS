@@ -76,7 +76,7 @@ Change the shebang line of PASS to point to the version of perl installed on you
 ### Documentation <a name=doc></a>
 -----------
 
-Refer to the PASS.readme file on how to run PASS
+Refer to the PASS.readme file on how to run PASS.
 Also please refer to the preprint [![link](https://img.shields.io/badge/PASS-preprint-brightgreen)](https://doi.org/10.48550/arXiv.2208.05598)
 Questions or comments?  We would love to hear from you!
 
