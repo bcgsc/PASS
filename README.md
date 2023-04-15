@@ -1,7 +1,7 @@
 [![Release](https://img.shields.io/github/release/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/releases)
 [![Downloads](https://img.shields.io/github/downloads/warrenlr/PASS/total?logo=github)](https://github.com/warrenlr/PASS/releases/download/untagged-637f9b09d287997b1fe6/pass_v0-3.tar.gz)
 [![Issues](https://img.shields.io/github/issues/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/issues)
-[![link](https://img.shields.io/badge/PASS-manuscript-brightgreen)](https://doi.org/10.48550/arXiv.2208.05598)
+[![link](https://img.shields.io/badge/PASS-preprint-brightgreen)](https://doi.org/10.48550/arXiv.2208.05598)
 
 ![Logo](https://github.com/warrenlr/pass/blob/master/pass-logo.png)
 
@@ -77,7 +77,7 @@ Change the shebang line of PASS to point to the version of perl installed on you
 -----------
 
 Refer to the PASS.readme file on how to run PASS
-
+Also please refer to the preprint [![link](https://img.shields.io/badge/PASS-preprint-brightgreen)](https://doi.org/10.48550/arXiv.2208.05598)
 Questions or comments?  We would love to hear from you!
 
 
