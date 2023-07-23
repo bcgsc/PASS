@@ -66,10 +66,10 @@ PASS is implemented in PERL and runs on any OS where PERL is installed.
 -----------
 
 Download the tar ball, gunzip and extract the files on your system using:
-
+<pre>
 gunzip pass_v0-3-1.tar.gz
 tar -xvf pass_v0-3-1.tar
-
+</pre>
 Change the shebang line of PASS to point to the version of perl installed on your system and you're good to go.
 
 
