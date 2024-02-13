@@ -66,6 +66,11 @@ PASS is implemented in PERL and runs on any OS where PERL is installed.
 ### Installation <a name=install></a>
 -----------
 
+With conda:
+<pre>
+conda install bioconda::pass
+</pre>
+
 Download the tar ball, gunzip and extract the files on your system using:
 <pre>
 gunzip pass_v0-3-1.tar.gz
