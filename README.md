@@ -1,6 +1,6 @@
 [![Release](https://img.shields.io/github/release/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/releases)
 [![Downloads](https://img.shields.io/github/downloads/warrenlr/PASS/total?logo=github)](https://github.com/warrenlr/PASS/releases/download/untagged-637f9b09d287997b1fe6/pass_v0-3.tar.gz)
-[![Conda](https://img.shields.io/conda/dn/bioconda/links?label=Conda)](https://anaconda.org/bioconda/PASS)
+[![Conda](https://img.shields.io/conda/dn/bioconda/pass?label=Conda)](https://anaconda.org/bioconda/PASS)
 [![Issues](https://img.shields.io/github/issues/warrenlr/PASS.svg)](https://github.com/warrenlr/PASS/issues)
 [![link](https://img.shields.io/badge/PASS-preprint-brightgreen)](https://doi.org/10.48550/arXiv.2208.05598)
 
